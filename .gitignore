@@ -1,0 +1,4 @@
+pdfs/
+.lein*
+target/
+dev-resources/
