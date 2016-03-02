@@ -5,7 +5,8 @@
 (def timesheet-details
   {:name "Jon"
    :client "That Bank"
-   :days-worked [{:day 1 :time 1}{:day 2 :time 0}]})
+   :days-worked [{:day 1 :time 1}{:day 2 :time 0}]
+   :total 1})
 
 (deftest timesheet-generation 
   "generates timesheet as html"

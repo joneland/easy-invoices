@@ -19,9 +19,7 @@
                   [:td (:time days-worked)]])
               [:tr
                 [:td "Total"]
-                [:td (->> (:days-worked details)
-                          (map :time)
-                          (reduce +))]]]]]))
+                [:td (:total details)]]]]]))
 
 (defn pdf-timesheet [html]
   (gen-pdf html 
