@@ -5,12 +5,16 @@
             [elandjo.timesheet.parser :refer :all] 
             [elandjo.timesheet.generation :refer :all]))
 
-(defn -main[input]
-  (with-open [rdr (reader input)]
-      (doseq [name (line-seq rdr)
-              client (line-seq rdr)
-              days-worked (line-seq rdr)]
-      (->> (parse-timesheet name client days-worked)
-            transform-timesheet
-            html-timesheet
-            pdf-timesheet))))
+(defn generate-timesheet [input-file]
+  (with-open [rdr (reader input-file)]
+    (doseq [name (line-seq rdr)
+            client (line-seq rdr)
+            days-worked (line-seq rdr)]
+      (->>
+        (parse-timesheet name client days-worked)
+         transform-timesheet
+         html-timesheet
+         pdf-timesheet))))
+
+(defn -main [input-file]
+  (generate-timesheet input-file))
