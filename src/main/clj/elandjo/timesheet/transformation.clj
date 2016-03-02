@@ -9,7 +9,7 @@
       (map #(into {} {:day % :time %2}) (range 1 (inc (count days-worked))) days-worked)
       (assoc timesheet-details :days-worked))))
 
-(defn transform-timesheet [timesheet-details]
+(defn transform [timesheet-details]
   (->>
     timesheet-details
     (include-total-days-worked)

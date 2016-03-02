@@ -1,20 +1,20 @@
 (ns elandjo.main
   (:gen-class)
-  (:require [clojure.java.io :refer :all]
-            [elandjo.timesheet.transformation :refer :all] 
-            [elandjo.timesheet.parser :refer :all] 
-            [elandjo.timesheet.generation :refer :all]))
+  (:require [elandjo.timesheet.transformation :refer [transform] :as ts-transformer] 
+            [elandjo.timesheet.parser :refer [parse] :as ts-parser] 
+            [elandjo.timesheet.generation :refer [as-html] :as ts-generator]))
+
+(defn as-pdf [html]
+  (gen-pdf html
+    :tmp "pdfs"
+    :stylesheets ["stylesheets/stylesheet.css"]))
 
 (defn generate-timesheet [input-file]
-  (with-open [rdr (reader input-file)]
-    (doseq [name (line-seq rdr)
-            client (line-seq rdr)
-            days-worked (line-seq rdr)]
-      (->>
-        (parse-timesheet name client days-worked)
-         transform-timesheet
-         html-timesheet
-         pdf-timesheet))))
+  (->>
+    (ts-parser/parse input-file)
+     ts-transformer/transform
+     ts-generator/as-html
+     as-pdf))
 
 (defn -main [input-file]
   (generate-timesheet input-file))

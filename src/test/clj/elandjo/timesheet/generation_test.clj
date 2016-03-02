@@ -11,5 +11,5 @@
 (deftest timesheet-generation 
   "generates timesheet as html"
     (is (=
-         "<html><head><link href=\"stylesheets/stylesheet.css\" rel=\"stylesheet\" type=\"text/css\" /></head><body><h1>Name: Jon</h1><h1>Client: That Bank</h1><table><tr><td>Day</td><td>Time (In Days)</td></tr><tr><td>1</td><td>1</td></tr><tr><td>2</td><td>0</td></tr><tr><td>Total</td><td>1</td></tr></table></body></html>"
-         (html-timesheet timesheet-details))))
+         "<html><head><link href=\"stylesheets/stylesheet.css\" rel=\"stylesheet\" type=\"text/css\" /></head><body><h3>Name: Jon</h3><h3>Client: That Bank</h3><table><tr><td>Day</td><td>Time (In Days)</td></tr><tr><td>1</td><td>1</td></tr><tr><td>2</td><td>0</td></tr><tr><td>Total</td><td>1</td></tr></table></body></html>"
+         (as-html timesheet-details))))
