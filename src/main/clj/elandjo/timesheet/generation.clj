@@ -1,7 +1,6 @@
 (ns elandjo.timesheet.generation
   (:require [hiccup.core :refer [html]]
-            [hiccup.page :refer [include-css]]
-            [pdfkit-clj.core :refer :all]))
+            [hiccup.page :refer [include-css]]))
 
 (defn as-html [timesheet]
   (html [:html

@@ -6,7 +6,7 @@
 (def parser-test-input-file "parser-test.input")
 
 (defn before []
-  (spit parser-test-input-file "Jon\nThat Bank\n1 1 - - 0\n"))
+  (spit parser-test-input-file "Jon\nThat Bank\n1 - 0\n"))
 
 (defn after []
   (io/delete-file parser-test-input-file))
@@ -21,5 +21,5 @@
 (deftest creates-timesheet-from-file-input 
   (is (= {:name "Jon"
           :client "That Bank"
-          :days-worked [1 1 "-" "-" 0]}
+          :days-worked[{:day 1 :time 1}{:day 2 :time "-"}{:day 3 :time 0}]} 
          (parse parser-test-input-file))))

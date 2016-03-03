@@ -1,11 +1,12 @@
 (ns elandjo.main
   (:gen-class)
-  (:require [elandjo.timesheet.enrichment :refer [enrich] :as ts-enricher] 
+  (:require [pdfkit-clj.core :refer [gen-pdf] :as pdfkit]
+            [elandjo.timesheet.enrichment :refer [enrich] :as ts-enricher] 
             [elandjo.timesheet.parser :refer [parse] :as ts-parser] 
             [elandjo.timesheet.generation :refer [as-html] :as ts-generator]))
 
 (defn as-pdf [html]
-  (gen-pdf html
+  (pdfkit/gen-pdf html
     :tmp "pdfs"
     :stylesheets ["stylesheets/stylesheet.css"]))
 
