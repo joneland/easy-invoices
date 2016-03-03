@@ -1,6 +1,6 @@
 (ns elandjo.main
   (:gen-class)
-  (:require [elandjo.timesheet.transformation :refer [transform] :as ts-transformer] 
+  (:require [elandjo.timesheet.enrichment :refer [enrich] :as ts-enricher] 
             [elandjo.timesheet.parser :refer [parse] :as ts-parser] 
             [elandjo.timesheet.generation :refer [as-html] :as ts-generator]))
 
@@ -12,7 +12,7 @@
 (defn generate-timesheet [input-file]
   (->>
     (ts-parser/parse input-file)
-     ts-transformer/transform
+     ts-enricher/enrich
      ts-generator/as-html
      as-pdf))
 
