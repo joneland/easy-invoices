@@ -3,12 +3,18 @@
             [clojure.java.io :as io]
             [elandjo.timesheet.parser :refer :all]))
 
-(defn test-setup [f]
-  (spit "parser-test.input" "Jon\nThat Bank\n1 1 - - 0")
-  (f)
+(defn before []
+  (spit "parser-test.input" "Jon\nThat Bank\n1 1 - - 0"))
+
+(defn after []
   (io/delete-file "parser-test.input"))
 
-(use-fixtures :once test-setup)
+(defn test-fixtures [run-test]
+  (before)
+  (run-test)
+  (after))
+
+(use-fixtures :each test-fixtures)
 
 (deftest creates-timesheet-data-structure-from-file-input 
   (is (= {:name "Jon"
