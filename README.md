@@ -1,11 +1,11 @@
 Automating the dull process of generating timesheets and invoices every month.
 
 ## Usage
-lein run sample.details
+`lein run sample.details`
 
 > Note that wkhtmltopdf must be available on the command line which can be downloaded at http://wkhtmltopdf.org
 
-## File contens
+## File contents
 
 The sample details file follows a strict layout as described below.
 
@@ -15,5 +15,3 @@ The sample details file follows a strict layout as described below.
 | 2 | Client | Foobar LTD |
 | 3 | Days Worked | 1 0 0 1 1 - - 1 1 1 0 1 |
 | 4 | Month | March |
-
-
