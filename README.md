@@ -3,7 +3,7 @@ Automating the dull process of generating timesheets and invoices every month.
 ## Usage
 `lein run sample.details`
 
-> Note that wkhtmltopdf must be available on the command line which can be downloaded at http://wkhtmltopdf.org
+> Note that wkhtmltopdf must be available on the command line. It can be downloaded at http://wkhtmltopdf.org
 
 ## File contents
 
