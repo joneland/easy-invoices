@@ -7,8 +7,9 @@
     [:html
       [:head (include-css "stylesheets/stylesheet.css")]
         [:body
-          [:h3 (str "Name: " (:name timesheet))]
-          [:h3 (str "Client: " (:client timesheet))]
+          [:h3 (format "Name: %s" (:name timesheet))]
+          [:h3 (format "Client: %s" (:client timesheet))]
+          [:h3 (format "Period: %s" (:period timesheet))]
           [:table
             [:tr
               [:td "Day"]
