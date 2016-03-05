@@ -1,4 +1,4 @@
-(ns elandjo.timesheet.transformer
+(ns elandjo.easy-invoices.transformer
   (:require [hiccup.core :refer [html]]
             [hiccup.page :refer [include-css]]))
 

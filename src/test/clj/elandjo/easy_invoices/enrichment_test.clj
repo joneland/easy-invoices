@@ -1,6 +1,6 @@
-(ns elandjo.timesheet.enrichment-test
+(ns elandjo.easy-invoices.enrichment-test
   (:require [clojure.test :refer :all]
-            [elandjo.timesheet.enrichment :refer [enrich]]))
+            [elandjo.easy-invoices.enrichment :refer [enrich]]))
 
 (deftest enriches-timesheet-with-and-total-days-worked
   (is (= {:days-worked [{:day 1 :time 1}

@@ -1,7 +1,7 @@
-(ns elandjo.timesheet.parser-test
+(ns elandjo.easy-invoices.parser-test
   (:require [clojure.test :refer :all]
             [clojure.java.io :as io]
-            [elandjo.timesheet.parser :refer [parse]]))
+            [elandjo.easy-invoices.parser :refer [parse]]))
 
 (def parser-test-input-file "parser-test.input")
 

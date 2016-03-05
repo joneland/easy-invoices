@@ -1,4 +1,4 @@
-(ns elandjo.timesheet.enrichment)
+(ns elandjo.easy-invoices.enrichment)
 
 (defn total-days-worked [timesheet]
   (->>

@@ -1,4 +1,4 @@
-(ns elandjo.timesheet.parser
+(ns elandjo.easy-invoices.parser
   (:require [clojure.string :as string]))
 
 (defn apply-formatting [timesheet]

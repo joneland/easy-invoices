@@ -1,6 +1,6 @@
-(ns elandjo.timesheet.transformer-test
+(ns elandjo.easy-invoices.transformer-test
   (:require [clojure.test :refer :all]
-            [elandjo.timesheet.transformer :refer [html-timesheet]]))
+            [elandjo.easy-invoices.transformer :refer [html-timesheet]]))
 
 (def timesheet
   {:name "Jon"
