@@ -7,5 +7,5 @@
     (reduce +)))
 
 (defn enrich [timesheet]
-  (assoc timesheet :total (total-days-worked timesheet)))
+  (assoc timesheet :total-days-worked (total-days-worked timesheet)))
     

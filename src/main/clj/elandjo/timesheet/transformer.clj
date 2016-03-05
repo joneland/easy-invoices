@@ -20,4 +20,4 @@
                 [:td (:time days-worked)]])
             [:tr
               [:td "Total"]
-              [:td (:total timesheet)]]]]]))
+              [:td (:total-days-worked timesheet)]]]]]))

@@ -6,7 +6,7 @@
   {:name "Jon"
    :client "That Bank"
    :days-worked [{:day 1 :time 1}{:day 2 :time 0}]
-   :total 1
+   :total-days-worked 1
    :period "1 March - 2 March"})
 
 (deftest transforms-timesheet-to-html

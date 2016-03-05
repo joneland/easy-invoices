@@ -6,7 +6,7 @@
   (is (= {:days-worked [{:day 1 :time 1}
                         {:day 2 :time 0}
                         {:day 3 :time "-"}]
-           :total 1}
+           :total-days-worked 1}
          (enrich {:days-worked [{:day 1 :time 1}
                                 {:day 2 :time 0}
                                 {:day 3 :time "-"}]}))))
