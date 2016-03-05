@@ -2,7 +2,7 @@
   (:require [hiccup.core :refer [html]]
             [hiccup.page :refer [include-css]]))
 
-(defn to-html [timesheet]
+(defn html-timesheet [timesheet]
   (html
     [:html
       [:head (include-css "stylesheets/stylesheet.css")]
