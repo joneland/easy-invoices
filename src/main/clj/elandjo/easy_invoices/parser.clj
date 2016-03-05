@@ -15,7 +15,7 @@
       (assoc :days-worked formatted-days-worked)
       (assoc :period formatted-period-worked))))
 
-(defn parse [input-file]
+(defn parse-timesheet [input-file]
   (let [contents (-> (slurp input-file) (string/split #"\n"))
         timesheet (zipmap [:name :client :days-worked :period] contents)]
     (apply-formatting timesheet)))

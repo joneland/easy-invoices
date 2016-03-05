@@ -1,7 +1,7 @@
 (ns elandjo.easy-invoices.parser-test
   (:require [clojure.test :refer :all]
             [clojure.java.io :as io]
-            [elandjo.easy-invoices.parser :refer [parse]]))
+            [elandjo.easy-invoices.parser :refer [parse-timesheet]]))
 
 (def parser-test-input-file "parser-test.input")
 
@@ -23,4 +23,4 @@
           :client "That Bank"
           :days-worked[{:day 1 :time 1}{:day 2 :time "-"}{:day 3 :time 0}]
           :period "1 March - 3 March"} 
-         (parse parser-test-input-file))))
+         (parse-timesheet parser-test-input-file))))

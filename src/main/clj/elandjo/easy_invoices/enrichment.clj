@@ -6,6 +6,6 @@
     (filter number?)
     (reduce +)))
 
-(defn enrich [timesheet]
+(defn enrich-timesheet [timesheet]
   (assoc timesheet :total-days-worked (total-days-worked timesheet)))
     
