@@ -21,3 +21,7 @@
             [:tr
               [:td "Total"]
               [:td (:total-days-worked timesheet)]]]]]))
+
+(defn html-invoice [invoice]
+  (html
+    [:html]))

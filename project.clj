@@ -3,6 +3,7 @@
   :url "https://github.com/joneland/easy-invoices"
   :source-paths ["src/main/clj" ]
   :test-paths [ "src/test/clj" ]
+  :dev {:resource-paths ["src/test/resources"]}
   :main elandjo.easy-invoices.main
   :dependencies
   [[org.clojure/clojure "1.8.0"]
