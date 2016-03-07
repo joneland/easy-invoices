@@ -20,7 +20,9 @@
     (html-timesheet timesheet))))
 
 (def invoice
-  {})
+  {:company-name "Jon's Software LTD"
+   :company-address "1 Clojure Road, London, Z1 2AB"
+   :phone-number "01234-567890"})
 
 (deftest transforms-invoice-to-html
   (is (=

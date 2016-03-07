@@ -24,4 +24,9 @@
 
 (defn html-invoice [invoice]
   (html
-    [:html]))
+    [:html
+      [:head (include-css "stylesheets/stylesheet.css")]
+        [:body
+         [:h3 (:company-name invoice)]
+         [:h3 (:company-address invoice)]
+         [:h3 (:phone-number invoice)]]]))
