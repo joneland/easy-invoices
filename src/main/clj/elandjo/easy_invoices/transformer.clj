@@ -29,4 +29,5 @@
         [:body
          [:h3 (:company-name invoice)]
          [:h3 (:company-address invoice)]
-         [:h3 (:phone-number invoice)]]]))
+         [:h3 (:phone-number invoice)]
+         [:h3 (format "To: %s" (:agency-address invoice))]]]))

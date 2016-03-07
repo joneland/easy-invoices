@@ -1,9 +1,9 @@
 (ns elandjo.easy-invoices.parser
   (:require [clojure.string :as string]))
 
-(def content-keys [:name :client :days-worked :period :company-name :company-address :phone-number])
+(def content-keys [:name :client :days-worked :period :company-name :company-address :phone-number :agency-address])
 
-(defn apply-formatting [timesheet]
+(defn apply-timesheet-formatting [timesheet]
   (let [days-worked (->> 
                       (string/split (:days-worked timesheet) #" ")
                       (map #(if (nil? (re-find #"\d+" %)) % (Integer. %))))
@@ -17,6 +17,9 @@
       (assoc :days-worked formatted-days-worked)
       (assoc :period formatted-period-worked))))
 
+(defn apply-invoice-formatting [invoice]
+  invoice)
+
 (defn extract-contents [input-file required-details]
   (let [contents (-> (slurp input-file) (string/split #"\n"))]
     (->
@@ -25,8 +28,8 @@
 
 (defn parse-timesheet [input-file]
   (let [timesheet (extract-contents input-file [:name :client :days-worked :period])]
-    (apply-formatting timesheet)))
+    (apply-timesheet-formatting timesheet)))
 
 (defn parse-invoice [input-file]
-  (let [invoice (extract-contents input-file [:company-name :company-address :phone-number])] 
-    invoice))
+  (let [invoice (extract-contents input-file [:company-name :company-address :phone-number :agency-address])] 
+    (apply-invoice-formatting invoice)))

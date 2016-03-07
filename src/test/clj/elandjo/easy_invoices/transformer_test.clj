@@ -22,7 +22,8 @@
 (def invoice
   {:company-name "Jon's Software LTD"
    :company-address "1 Clojure Road, London, Z1 2AB"
-   :phone-number "01234-567890"})
+   :phone-number "01234-567890"
+   :agency-address "The Agency, 5 Fizz Street, London, Z2 3DV"})
 
 (deftest transforms-invoice-to-html
   (is (=
