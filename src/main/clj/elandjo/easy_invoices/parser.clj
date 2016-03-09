@@ -3,7 +3,7 @@
 
 (def content-keys [:name :client :days-worked-tally :month :company-name
                    :company-address :phone-number :agency-address :attention-of
-                   :email-to :invoice-date])
+                   :email-to :invoice-date :invoice-number])
 
 (defn days-worked [timesheet]
   (->> 
@@ -41,5 +41,5 @@
 
 (defn parse-invoice [input-file]
   (let [invoice (extract-contents input-file [:company-name :company-address :phone-number :agency-address
-                                              :attention-of :email-to :invoice-date])] 
+                                              :attention-of :email-to :invoice-date :invoice-number])] 
     (-> invoice)))

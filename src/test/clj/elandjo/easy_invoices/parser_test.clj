@@ -21,5 +21,6 @@
      :agency-address "The Agency, 5 Fizz Street, London, Z2 3DV"
      :attention-of "First Choice Agency Accounts"
      :email-to "first.choice@accounts.com"
-     :invoice-date "1 April 2016"}
+     :invoice-date "1 April 2016"
+     :invoice-number "34"}
     (parse-invoice parser-test-input-file))))

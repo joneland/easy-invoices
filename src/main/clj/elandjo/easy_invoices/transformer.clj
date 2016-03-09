@@ -34,4 +34,5 @@
            [:p line-of-address])
          [:p (format "For the attention of: %s" (:attention-of invoice))]
          [:p (format "Emailed to: %s" (:email-to invoice))]
-         [:p (format "Invoice date: %s" (:invoice-date invoice))]]]))
+         [:p (format "Invoice date: %s" (:invoice-date invoice))]
+         [:p (format "INVOICE NO: %s" (:invoice-number invoice))]]]))
