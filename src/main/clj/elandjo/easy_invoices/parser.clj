@@ -41,5 +41,8 @@
 
 (defn parse-invoice [input-file]
   (let [invoice (extract-contents input-file [:company-name :company-address :phone-number :agency-address
-                                              :attention-of :email-to :invoice-date :invoice-number])] 
-    (-> invoice)))
+                                              :attention-of :email-to :invoice-date :invoice-number
+                                              :month :days-worked-tally])] 
+    (-> invoice
+      (assoc :period (period-worked invoice))
+      (dissoc :month :days-worked-tally))))

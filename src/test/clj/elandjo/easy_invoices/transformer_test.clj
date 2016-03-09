@@ -27,7 +27,8 @@
    :attention-of "First Choice Agency Accounts"
    :email-to "first.choice@accounts.com"
    :invoice-date "1 April 2016"
-   :invoice-number "34"})
+   :invoice-number "34"
+   :period "1 March - 3 March"})
 
 (deftest transforms-invoice-to-html
   (is (=
