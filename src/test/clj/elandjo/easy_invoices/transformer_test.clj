@@ -20,10 +20,12 @@
     (html-timesheet timesheet))))
 
 (def invoice
-  {:company-name "Jon's Software LTD"
-   :company-address "1 Clojure Road, London, Z1 2AB"
+  {:company-name "Foobar Software LTD"
+   :company-address "1 Foobar Road, London, Z1 2AB"
    :phone-number "01234-567890"
-   :agency-address "The Agency, 5 Fizz Street, London, Z2 3DV"})
+   :agency-address "The Agency, 5 Fizz Street, London, Z2 3DV"
+   :attention-of "First Choice Agency Accounts"
+   :email-to "first.choice@accounts.com"})
 
 (deftest transforms-invoice-to-html
   (is (=

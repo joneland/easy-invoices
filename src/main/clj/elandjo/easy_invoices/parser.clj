@@ -1,7 +1,9 @@
 (ns elandjo.easy-invoices.parser
   (:require [clojure.string :as string]))
 
-(def content-keys [:name :client :days-worked-tally :month :company-name :company-address :phone-number :agency-address])
+(def content-keys [:name :client :days-worked-tally :month :company-name
+                   :company-address :phone-number :agency-address :attention-of
+                   :email-to])
 
 (defn days-worked [timesheet]
   (->> 
@@ -38,5 +40,6 @@
       (dissoc :month :days-worked-tally))))
 
 (defn parse-invoice [input-file]
-  (let [invoice (extract-contents input-file [:company-name :company-address :phone-number :agency-address])] 
+  (let [invoice (extract-contents input-file [:company-name :company-address :phone-number :agency-address
+                                              :attention-of :email-to])] 
     (-> invoice)))

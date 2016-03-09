@@ -17,6 +17,8 @@
   (is (=
     {:company-name "Foobar Software LTD"
      :company-address "1 Foobar Road, London, Z1 2AB"
-     :phone-number "01234-56789"
-     :agency-address "The Agency, 5 Fizz Street, London, Z2 3DV"}
+     :phone-number "01234-567890"
+     :agency-address "The Agency, 5 Fizz Street, London, Z2 3DV"
+     :attention-of "First Choice Agency Accounts"
+     :email-to "first.choice@accounts.com"}
     (parse-invoice parser-test-input-file))))
