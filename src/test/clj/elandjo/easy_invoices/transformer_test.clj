@@ -25,7 +25,8 @@
    :phone-number "01234-567890"
    :agency-address "The Agency, 5 Fizz Street, London, Z2 3DV"
    :attention-of "First Choice Agency Accounts"
-   :email-to "first.choice@accounts.com"})
+   :email-to "first.choice@accounts.com"
+   :invoice-date "1 April 2016"})
 
 (deftest transforms-invoice-to-html
   (is (=

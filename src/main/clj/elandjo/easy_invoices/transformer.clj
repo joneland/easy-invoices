@@ -33,4 +33,5 @@
          (for [line-of-address (clojure.string/split (:agency-address invoice) #", ")]
            [:p line-of-address])
          [:p (format "For the attention of: %s" (:attention-of invoice))]
-         [:p (format "Emailed to: %s" (:email-to invoice))]]]))
+         [:p (format "Emailed to: %s" (:email-to invoice))]
+         [:p (format "Invoice date: %s" (:invoice-date invoice))]]]))
