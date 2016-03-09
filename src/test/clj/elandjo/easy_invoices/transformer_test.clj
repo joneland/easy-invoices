@@ -29,7 +29,9 @@
    :invoice-date "1 April 2016"
    :invoice-number "34"
    :period "1 March - 3 March"
-   :rate 100.00})
+   :rate 100.00
+   :weekly-charge [{:week-commencing "1 March 2016" :days-worked 4 :net 400.00 :vat 80.00}
+                   {:week-commencing "8 March 2016" :days-worked 5 :net 500.00 :vat 100.00}]})
 
 (deftest transforms-invoice-to-html
   (is (=

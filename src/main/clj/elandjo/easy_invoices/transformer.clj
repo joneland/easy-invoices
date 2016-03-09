@@ -37,4 +37,16 @@
          [:p (format "Invoice date: %s" (:invoice-date invoice))]
          [:p (format "INVOICE NO: %s" (:invoice-number invoice))]
          [:p (format "Work period: %s" (:period invoice))]
-         [:p (format "Contractor rate: £%.2f per day" (:rate invoice))]]]))
+         [:p (format "Contractor rate: £%.2f per day" (:rate invoice))]
+         [:table
+          [:tr
+           [:td "Week Commencing"]
+           [:td "Days Worked"]
+           [:td "Net Amount"]
+           [:td "VAT Amount"]]
+          (for [weekly-charge (:weekly-charge invoice)]
+            [:tr
+              [:td (:week-commencing weekly-charge)]
+              [:td (format "%d @ £%.2f per day" (:days-worked weekly-charge) (:rate invoice))]
+              [:td (format "£%.2f" (:net weekly-charge))]
+              [:td (format "£%.2f" (:vat weekly-charge))]])]]]))
