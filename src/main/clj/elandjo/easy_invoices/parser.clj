@@ -3,7 +3,7 @@
 
 (def content-keys [:name :client :days-worked-tally :month :company-name
                    :company-address :phone-number :agency-address :attention-of
-                   :email-to :invoice-date :invoice-number])
+                   :email-to :invoice-date :invoice-number :rate])
 
 (defn days-worked [timesheet]
   (->> 
@@ -42,7 +42,8 @@
 (defn parse-invoice [input-file]
   (let [invoice (extract-contents input-file [:company-name :company-address :phone-number :agency-address
                                               :attention-of :email-to :invoice-date :invoice-number
-                                              :month :days-worked-tally])] 
+                                              :month :days-worked-tally :rate])] 
     (-> invoice
       (assoc :period (period-worked invoice))
+      (assoc :rate (Double/parseDouble (:rate invoice)))
       (dissoc :month :days-worked-tally))))

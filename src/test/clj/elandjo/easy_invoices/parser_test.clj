@@ -23,5 +23,6 @@
      :email-to "first.choice@accounts.com"
      :invoice-date "1 April 2016"
      :invoice-number "34"
-     :period "1 March - 3 March"}
+     :period "1 March - 3 March"
+     :rate 100.00}
     (parse-invoice parser-test-input-file))))

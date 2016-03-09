@@ -36,4 +36,5 @@
          [:p (format "Emailed to: %s" (:email-to invoice))]
          [:p (format "Invoice date: %s" (:invoice-date invoice))]
          [:p (format "INVOICE NO: %s" (:invoice-number invoice))]
-         [:p (format "Work period: %s" (:period invoice))]]]))
+         [:p (format "Work period: %s" (:period invoice))]
+         [:p (format "Contractor rate: £%.2f per day" (:rate invoice))]]]))
