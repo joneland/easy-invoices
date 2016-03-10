@@ -1,7 +1,7 @@
 (ns elandjo.easy-invoices.main
   (:gen-class)
   (:require [pdfkit-clj.core :refer [gen-pdf] :as pdfkit]
-            [elandjo.easy-invoices.enrichment :refer [enrich-timesheet] :as enricher] 
+            [elandjo.easy-invoices.enrichment :refer [enrich-timesheet enrich-invoice] :as enricher] 
             [elandjo.easy-invoices.parser :refer [parse-timesheet parse-invoice] :as parser] 
             [elandjo.easy-invoices.transformer :refer [html-timesheet html-invoice] :as transformer]))
 
@@ -13,13 +13,14 @@
 (defn generate-timesheet [input-file]
   (->>
     (parser/parse-timesheet input-file)
-     enricher/enrich-timesheet
-     transformer/html-timesheet
+    (enricher/enrich-timesheet)
+    (transformer/html-timesheet)
      to-pdf))
 
 (defn generate-invoice [input-file]
   (->>
     (parser/parse-invoice input-file)
+    (enricher/enrich-invoice)
     (transformer/html-invoice)
     to-pdf))
 
