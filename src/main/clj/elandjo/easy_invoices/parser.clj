@@ -26,6 +26,21 @@
         days-in-month (days-in-month days-worked)]
     (format "%d %s - %d %s" (first days-in-month) (:month timesheet) (last days-in-month) (:month timesheet))))
 
+(defn weeks-worked [invoice]
+  (let [day-vs-time-worked (vec (day-vs-time-worked invoice))
+        include-week-commencing (reduce
+                                  (fn [result current-day]
+                                    (let [yesterday (last result)
+                                          week-commencing (if (number? (:time yesterday))
+                                                            (:week-commencing yesterday)
+                                                            (:day current-day))]
+                                      (conj result (assoc current-day :week-commencing week-commencing))))
+                                  []
+                                  day-vs-time-worked)]
+    (->>
+      (filter #(number? (:time %)) include-week-commencing)
+      (map #(dissoc % :day)))))
+
 (defn extract-contents [input-file required-details]
   (let [contents (-> (slurp input-file) (string/split #"\n"))]
     (->
@@ -46,4 +61,6 @@
     (-> invoice
       (assoc :period (period-worked invoice))
       (assoc :rate (Double/parseDouble (:rate invoice)))
+      (assoc :weeks-worked [{:week-commencing "1 March", :days-worked 1}
+                            {:week-commencing "4 March", :days-worked 0}])
       (dissoc :month :days-worked-tally))))
